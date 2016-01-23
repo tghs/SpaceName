@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C67894121C54074B00B30C72 /* SpaceNameTextFieldDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C67894111C54074B00B30C72 /* SpaceNameTextFieldDelegate.m */; };
 		C6CC01281C4052FE00899A72 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C6CC01271C4052FE00899A72 /* AppDelegate.m */; };
 		C6CC012B1C4052FE00899A72 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C6CC012A1C4052FE00899A72 /* main.m */; };
 		C6CC012D1C4052FE00899A72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6CC012C1C4052FE00899A72 /* Assets.xcassets */; };
@@ -41,6 +42,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C67894101C54074B00B30C72 /* SpaceNameTextFieldDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpaceNameTextFieldDelegate.h; sourceTree = "<group>"; };
+		C67894111C54074B00B30C72 /* SpaceNameTextFieldDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpaceNameTextFieldDelegate.m; sourceTree = "<group>"; };
 		C6CC01231C4052FE00899A72 /* SpaceName.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceName.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6CC01261C4052FE00899A72 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C6CC01271C4052FE00899A72 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -100,6 +103,8 @@
 			children = (
 				C6CC01261C4052FE00899A72 /* AppDelegate.h */,
 				C6CC01271C4052FE00899A72 /* AppDelegate.m */,
+				C67894101C54074B00B30C72 /* SpaceNameTextFieldDelegate.h */,
+				C67894111C54074B00B30C72 /* SpaceNameTextFieldDelegate.m */,
 				C6CC012C1C4052FE00899A72 /* Assets.xcassets */,
 				C6CC012E1C4052FE00899A72 /* MainMenu.xib */,
 				C6CC01311C4052FE00899A72 /* Info.plist */,
@@ -236,6 +241,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C67894121C54074B00B30C72 /* SpaceNameTextFieldDelegate.m in Sources */,
 				C6CC01551C407BC300899A72 /* NSWindow+canBecomeKeyWindow.m in Sources */,
 				C6CC012B1C4052FE00899A72 /* main.m in Sources */,
 				C6CC01281C4052FE00899A72 /* AppDelegate.m in Sources */,

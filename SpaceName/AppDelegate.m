@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 
+#import "SpaceNameTextFieldDelegate.h"
 #import "TSLib.h"
 
 @interface AppDelegate ()
@@ -21,6 +22,7 @@
 NSStatusItem *item;
 NSView *oldView;
 NSTextField *text;
+SpaceNameTextFieldDelegate *spaceNameTextFieldDelegate;
 
 // self reference for C functions
 id this;
@@ -64,6 +66,11 @@ void spaceChange(unsigned int fromSpaceNumber, unsigned int toSpaceNumber, CGDir
 	[self updateSpaceName];
 }
 
+- (void)cancelEdit {
+	[self updateSpaceName];
+	[self edited];
+}
+
 - (void)updateSpaceName {
 	NSString *spaceName = [AppDelegate currentSpaceName];
 	item.button.title = spaceName;
@@ -80,6 +87,10 @@ void spaceChange(unsigned int fromSpaceNumber, unsigned int toSpaceNumber, CGDir
 	[text setEditable:TRUE];
 	[text setAction:@selector(edited)];
 	
+	spaceNameTextFieldDelegate = [SpaceNameTextFieldDelegate new];
+	spaceNameTextFieldDelegate.appDelegate = self;
+	text.delegate = spaceNameTextFieldDelegate;
+	
 	this = self;
 	tsapi_setSpaceWillChangeCallback(spaceChange);
 	
@@ -91,8 +102,7 @@ void spaceChange(unsigned int fromSpaceNumber, unsigned int toSpaceNumber, CGDir
 }
 
 - (void)applicationWillResignActive:(NSNotification *)notification {
-	[self updateSpaceName];
-	[self edited];
+	[self cancelEdit];
 }
 
 @end

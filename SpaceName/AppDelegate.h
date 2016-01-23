@@ -12,5 +12,7 @@
 
 + (NSString *)currentSpaceName;
 
+- (void)cancelEdit;
+
 @end
 
