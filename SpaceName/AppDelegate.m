@@ -42,7 +42,21 @@ void spaceChange(unsigned int fromSpaceNumber, unsigned int toSpaceNumber, CGDir
 }
 
 - (void)edit {
-	[text sizeToFit];
+	// Set minimum width
+	if ([text.stringValue length] < 8) {
+		NSString *padding = @"";
+		for (int i = 0; i < (8 - [text.stringValue length]); i++) {
+			padding = [NSString stringWithFormat:@"%@%@", padding, @"m"];
+		}
+		
+		NSString *tmp = text.stringValue;
+		text.stringValue = [NSString stringWithFormat:@"%@%@", tmp, padding];
+		[text sizeToFit];
+		text.stringValue = tmp;
+	} else {
+		[text sizeToFit];
+	}
+	
 	oldView = item.view;
 	item.view = text;
 	[text becomeFirstResponder];
