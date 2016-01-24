@@ -23,6 +23,7 @@ NSStatusItem *item;
 NSView *oldView;
 NSTextField *text;
 SpaceNameTextFieldDelegate *spaceNameTextFieldDelegate;
+NSMenu *menu;
 
 // self reference for C functions
 id this;
@@ -41,7 +42,7 @@ void spaceChange(unsigned int fromSpaceNumber, unsigned int toSpaceNumber, CGDir
 	[this updateSpaceName];
 }
 
-- (void)edit {
+- (void)doubleClick {
 	// Set minimum width
 	if ([text.stringValue length] < 8) {
 		NSString *padding = @"";
@@ -85,17 +86,43 @@ void spaceChange(unsigned int fromSpaceNumber, unsigned int toSpaceNumber, CGDir
 	[self edited];
 }
 
+- (void)quit {
+	[NSApp performSelector:@selector(terminate:) withObject:nil afterDelay:0.0];
+}
+
+- (void)updateMenu {
+	[menu removeAllItems];
+	//[menu addItem:[NSMenuItem separatorItem]];
+	[menu addItemWithTitle:@"Quit" action:@selector(quit) keyEquivalent:@""];
+}
+
+- (void)singleClick {
+	dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+		// Update menu
+		[self updateMenu];
+		usleep(300000);
+		dispatch_async(dispatch_get_main_queue(), ^(void){
+			// Only show the menu if not editing with a double-click
+			if (item.view != text) {
+				[item popUpStatusItemMenu:menu];
+			}
+		});
+	});
+}
+
 - (void)updateSpaceName {
 	NSString *spaceName = [AppDelegate currentSpaceName];
 	item.button.title = spaceName;
 	[text setStringValue: spaceName];
-	item.doubleAction = @selector(edit); // moved from initialization
+	item.doubleAction = @selector(doubleClick); // moved from initialization
+	item.action = @selector(singleClick);
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
 	NSStatusBar *bar = [NSStatusBar systemStatusBar];
 	
 	item = [bar statusItemWithLength:NSVariableStatusItemLength];
+	menu = [NSMenu new];
 	
 	text = [[NSTextField alloc] init];
 	[text setEditable:TRUE];
