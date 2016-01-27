@@ -86,6 +86,10 @@ void spaceChange(unsigned int fromSpaceNumber, unsigned int toSpaceNumber, CGDir
 	[self edited];
 }
 
+- (void)showPreferences {
+	[self.window makeKeyAndOrderFront:self];
+}
+
 - (void)quit {
 	[NSApp performSelector:@selector(terminate:) withObject:nil afterDelay:0.0];
 }
@@ -121,6 +125,7 @@ void spaceChange(unsigned int fromSpaceNumber, unsigned int toSpaceNumber, CGDir
 	}
 	
 	[menu addItem:[NSMenuItem separatorItem]];
+	[menu addItemWithTitle:@"Preferences" action:@selector(showPreferences) keyEquivalent:@""];
 	[menu addItemWithTitle:@"Quit" action:@selector(quit) keyEquivalent:@""];
 }
 
