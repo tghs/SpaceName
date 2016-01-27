@@ -146,7 +146,28 @@ void spaceChange(unsigned int fromSpaceNumber, unsigned int toSpaceNumber, CGDir
 	item.action = @selector(singleClick);
 }
 
+- (void)setupPreferences {
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	
+	[defaults registerDefaults:@{
+		@"firstLaunch": @YES,
+	}];
+}
+
+- (void)maybeFirstLaunch {
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	
+	if ([defaults boolForKey:@"firstLaunch"]) {
+		// First launch
+		[defaults setBool:NO forKey:@"firstLaunch"];
+	}
+}
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+	[self setupPreferences];
+	
+	[self maybeFirstLaunch];
+
 	NSStatusBar *bar = [NSStatusBar systemStatusBar];
 	
 	item = [bar statusItemWithLength:NSVariableStatusItemLength];
