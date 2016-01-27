@@ -5,3 +5,17 @@ SpaceName lets you show and quickly edit OS X space names in your menubar. It us
 Double-click the space name to edit and hit enter when you're done.
 
 Currently, you've got to build SpaceName yourself using Xcode.
+
+## Build
+
+Install dependencies with [Carthage](https://github.com/Carthage/Carthage)
+
+```bash
+carthage update
+```
+
+Build SpaceName
+
+```bash
+xcodebuild
+```
