@@ -16,6 +16,9 @@
 		C6CC014C1C40580900899A72 /* libtotalspaces2api.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C6CC014A1C4057D800899A72 /* libtotalspaces2api.dylib */; };
 		C6CC01501C405AA600899A72 /* libtotalspaces2api.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6CC014A1C4057D800899A72 /* libtotalspaces2api.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		C6CC01551C407BC300899A72 /* NSWindow+canBecomeKeyWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = C6CC01541C407BC300899A72 /* NSWindow+canBecomeKeyWindow.m */; };
+		C6D2850F1C58FAE600813456 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6D2850E1C58FAE600813456 /* Sparkle.framework */; };
+		C6D285101C58FAE600813456 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6D2850E1C58FAE600813456 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C6D285171C58FBD000813456 /* Sparkle.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6D285111C58FB5900813456 /* Sparkle.framework.dSYM */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,17 @@
 			dstSubfolderSpec = 10;
 			files = (
 				C6CC01501C405AA600899A72 /* libtotalspaces2api.dylib in CopyFiles */,
+				C6D285101C58FAE600813456 /* Sparkle.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6D285131C58FB6E00813456 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				C6D285171C58FBD000813456 /* Sparkle.framework.dSYM in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +72,8 @@
 		C6CC01511C405AF400899A72 /* TSLib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TSLib.h; path = SpaceName/TSLib.h; sourceTree = "<group>"; };
 		C6CC01531C407BC300899A72 /* NSWindow+canBecomeKeyWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSWindow+canBecomeKeyWindow.h"; sourceTree = "<group>"; };
 		C6CC01541C407BC300899A72 /* NSWindow+canBecomeKeyWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSWindow+canBecomeKeyWindow.m"; sourceTree = "<group>"; };
+		C6D2850E1C58FAE600813456 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Carthage/Build/Mac/Sparkle.framework; sourceTree = "<group>"; };
+		C6D285111C58FB5900813456 /* Sparkle.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Sparkle.framework.dSYM; path = Carthage/Build/Mac/Sparkle.framework.dSYM; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +82,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6CC014C1C40580900899A72 /* libtotalspaces2api.dylib in Frameworks */,
+				C6D2850F1C58FAE600813456 /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +99,7 @@
 		C6CC011A1C4052FE00899A72 = {
 			isa = PBXGroup;
 			children = (
+				C6D285161C58FBAA00813456 /* Dependencies */,
 				C6CC01521C405B0E00899A72 /* TotalSpaces */,
 				C6CC01251C4052FE00899A72 /* SpaceName */,
 				C6CC01391C4052FE00899A72 /* SpaceNameTests */,
@@ -141,6 +159,15 @@
 			name = TotalSpaces;
 			sourceTree = "<group>";
 		};
+		C6D285161C58FBAA00813456 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				C6D285111C58FB5900813456 /* Sparkle.framework.dSYM */,
+				C6D2850E1C58FAE600813456 /* Sparkle.framework */,
+			);
+			name = Dependencies;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -152,6 +179,7 @@
 				C6CC01201C4052FE00899A72 /* Frameworks */,
 				C6CC01211C4052FE00899A72 /* Resources */,
 				C6CC014F1C405A9500899A72 /* CopyFiles */,
+				C6D285131C58FB6E00813456 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -362,6 +390,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = SpaceName/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -378,6 +410,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = SpaceName/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
