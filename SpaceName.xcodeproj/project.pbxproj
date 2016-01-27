@@ -11,7 +11,7 @@
 		C6CC01281C4052FE00899A72 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C6CC01271C4052FE00899A72 /* AppDelegate.m */; };
 		C6CC012B1C4052FE00899A72 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C6CC012A1C4052FE00899A72 /* main.m */; };
 		C6CC012D1C4052FE00899A72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6CC012C1C4052FE00899A72 /* Assets.xcassets */; };
-		C6CC01301C4052FE00899A72 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6CC012E1C4052FE00899A72 /* MainMenu.xib */; };
+		C6CC01301C4052FE00899A72 /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6CC012E1C4052FE00899A72 /* Preferences.xib */; };
 		C6CC013B1C4052FE00899A72 /* SpaceNameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C6CC013A1C4052FE00899A72 /* SpaceNameTests.m */; };
 		C6CC014C1C40580900899A72 /* libtotalspaces2api.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C6CC014A1C4057D800899A72 /* libtotalspaces2api.dylib */; };
 		C6CC01501C405AA600899A72 /* libtotalspaces2api.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6CC014A1C4057D800899A72 /* libtotalspaces2api.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -63,7 +63,7 @@
 		C6CC01271C4052FE00899A72 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C6CC012A1C4052FE00899A72 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C6CC012C1C4052FE00899A72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C6CC012F1C4052FE00899A72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		C6CC012F1C4052FE00899A72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/Preferences.xib; sourceTree = "<group>"; };
 		C6CC01311C4052FE00899A72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C6CC01361C4052FE00899A72 /* SpaceNameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpaceNameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6CC013A1C4052FE00899A72 /* SpaceNameTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpaceNameTests.m; sourceTree = "<group>"; };
@@ -124,7 +124,7 @@
 				C67894101C54074B00B30C72 /* SpaceNameTextFieldDelegate.h */,
 				C67894111C54074B00B30C72 /* SpaceNameTextFieldDelegate.m */,
 				C6CC012C1C4052FE00899A72 /* Assets.xcassets */,
-				C6CC012E1C4052FE00899A72 /* MainMenu.xib */,
+				C6CC012E1C4052FE00899A72 /* Preferences.xib */,
 				C6CC01311C4052FE00899A72 /* Info.plist */,
 				C6CC01291C4052FE00899A72 /* Supporting Files */,
 				C6CC01531C407BC300899A72 /* NSWindow+canBecomeKeyWindow.h */,
@@ -251,7 +251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6CC012D1C4052FE00899A72 /* Assets.xcassets in Resources */,
-				C6CC01301C4052FE00899A72 /* MainMenu.xib in Resources */,
+				C6CC01301C4052FE00899A72 /* Preferences.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,12 +295,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		C6CC012E1C4052FE00899A72 /* MainMenu.xib */ = {
+		C6CC012E1C4052FE00899A72 /* Preferences.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				C6CC012F1C4052FE00899A72 /* Base */,
 			);
-			name = MainMenu.xib;
+			name = Preferences.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
