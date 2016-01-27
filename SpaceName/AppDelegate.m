@@ -177,7 +177,7 @@ void spaceChange(unsigned int fromSpaceNumber, unsigned int toSpaceNumber, CGDir
 		[alert addButtonWithTitle:@"OK"];
 		alert.messageText = @"Could not access TotalSpaces2";
 		alert.informativeText = @"Check that it is installed, running and licensed, and relaunch SpaceName.";
-		alert.alertStyle = NSWarningAlertStyle;
+		alert.alertStyle = NSCriticalAlertStyle;
 		[alert runModal];
 		[self quit];
 	}
