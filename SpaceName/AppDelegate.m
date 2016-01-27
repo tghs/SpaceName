@@ -165,7 +165,6 @@ void spaceChange(unsigned int fromSpaceNumber, unsigned int toSpaceNumber, CGDir
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
 	[self setupPreferences];
-	
 	[self maybeFirstLaunch];
 
 	NSStatusBar *bar = [NSStatusBar systemStatusBar];
