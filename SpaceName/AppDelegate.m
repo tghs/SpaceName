@@ -169,6 +169,19 @@ void spaceChange(unsigned int fromSpaceNumber, unsigned int toSpaceNumber, CGDir
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+	const char *apiVersion = tsapi_apiVersion();
+	BOOL apiAvailable = strcmp("", apiVersion) != 0;
+	tsapi_freeString(apiVersion);
+	if (! apiAvailable) {
+		NSAlert *alert = [NSAlert new];
+		[alert addButtonWithTitle:@"OK"];
+		alert.messageText = @"Could not access TotalSpaces2";
+		alert.informativeText = @"Check that it is installed, running and licensed, and relaunch SpaceName.";
+		alert.alertStyle = NSWarningAlertStyle;
+		[alert runModal];
+		[self quit];
+	}
+
 	[self setupPreferences];
 	[self maybeFirstLaunch];
 
