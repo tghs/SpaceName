@@ -90,9 +90,37 @@ void spaceChange(unsigned int fromSpaceNumber, unsigned int toSpaceNumber, CGDir
 	[NSApp performSelector:@selector(terminate:) withObject:nil afterDelay:0.0];
 }
 
+- (void)menuSpaceChange: (NSMenuItem *)obj {
+	struct tsapi_displays *displays = tsapi_displayList();
+	CGDirectDisplayID display_id = displays->displays[0].displayId;
+	unsigned space_id = tsapi_currentSpaceNumberOnDisplay(display_id);
+	
+	NSNumber *spaceNumber = obj.representedObject;
+	tsapi_moveToSpaceOnDisplay([spaceNumber intValue], display_id);
+	spaceChange(space_id, [spaceNumber intValue], display_id);
+}
+
 - (void)updateMenu {
 	[menu removeAllItems];
-	//[menu addItem:[NSMenuItem separatorItem]];
+	
+	struct tsapi_displays *displays = tsapi_displayList();
+	CGDirectDisplayID display_id = displays->displays[0].displayId;
+	unsigned spaceCount = tsapi_numberOfSpacesOnDisplay(display_id);
+	
+	for (int i = 1; i <= spaceCount; i++) {
+		const char *cSpaceName = tsapi_spaceNameForSpaceNumberOnDisplay(i, display_id);
+		NSString *spaceName = [NSString stringWithCString:cSpaceName encoding:NSUTF8StringEncoding];
+		NSMenuItem *item = [NSMenuItem new];
+		item.title = spaceName;
+		item.action = @selector(menuSpaceChange:);
+		item.keyEquivalent = @"";
+		NSNumber *spaceNumber = [NSNumber numberWithInt:i];
+		item.representedObject = spaceNumber;
+		[menu addItem:item];
+		//[menu addItemWithTitle:spaceName action:@selector(menuSpaceChange:) keyEquivalent:@""];
+	}
+	
+	[menu addItem:[NSMenuItem separatorItem]];
 	[menu addItemWithTitle:@"Quit" action:@selector(quit) keyEquivalent:@""];
 }
 
