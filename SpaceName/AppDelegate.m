@@ -169,10 +169,10 @@ void spaceChange(unsigned int fromSpaceNumber, unsigned int toSpaceNumber, CGDir
 		[alert runModal];
 		[self quit];
 	}
-
+	
 	[self setupPreferences];
 	[self maybeFirstLaunch];
-
+	
 	NSStatusBar *bar = [NSStatusBar systemStatusBar];
 	
 	item = [bar statusItemWithLength:NSVariableStatusItemLength];
