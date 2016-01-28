@@ -20,4 +20,14 @@
 	return ret;
 }
 
++ (NSString *)currentSpaceName {
+	struct tsapi_displays *displays = tsapi_displayList();
+	CGDirectDisplayID display_id = displays->displays[0].displayId;
+	unsigned space_id = tsapi_currentSpaceNumberOnDisplay(display_id);
+	const char *space_name = tsapi_spaceNameForSpaceNumberOnDisplay(space_id, display_id);
+	NSString *ret = [NSString stringWithCString:space_name encoding:NSUTF8StringEncoding];
+	tsapi_freeString(space_name);
+	return ret;
+}
+
 @end

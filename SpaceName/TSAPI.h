@@ -11,5 +11,6 @@
 @interface TSAPI : NSObject
 
 + (BOOL)available;
++ (NSString *)currentSpaceName;
 
 @end

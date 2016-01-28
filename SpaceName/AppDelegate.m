@@ -29,16 +29,6 @@ NSMenu *menu;
 // self reference for C functions
 id this;
 
-+ (NSString *)currentSpaceName {
-	struct tsapi_displays *displays = tsapi_displayList();
-	CGDirectDisplayID display_id = displays->displays[0].displayId;
-	unsigned space_id = tsapi_currentSpaceNumberOnDisplay(display_id);
-	const char *space_name = tsapi_spaceNameForSpaceNumberOnDisplay(space_id, display_id);
-	NSString *ret = [NSString stringWithCString:space_name encoding:NSUTF8StringEncoding];
-	tsapi_freeString(space_name);
-	return ret;
-}
-
 void spaceChange(unsigned int fromSpaceNumber, unsigned int toSpaceNumber, CGDirectDisplayID displayID) {
 	[this updateSpaceName];
 }
@@ -145,7 +135,7 @@ void spaceChange(unsigned int fromSpaceNumber, unsigned int toSpaceNumber, CGDir
 }
 
 - (void)updateSpaceName {
-	NSString *spaceName = [AppDelegate currentSpaceName];
+	NSString *spaceName = [TSAPI currentSpaceName];
 	item.button.title = spaceName;
 	[text setStringValue: spaceName];
 	item.doubleAction = @selector(doubleClick); // moved from initialization
