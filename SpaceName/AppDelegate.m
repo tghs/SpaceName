@@ -10,6 +10,7 @@
 
 #import "SpaceNameTextFieldDelegate.h"
 #import "TSLib.h"
+#import "TSAPI.h"
 
 @interface AppDelegate ()
 
@@ -169,10 +170,7 @@ void spaceChange(unsigned int fromSpaceNumber, unsigned int toSpaceNumber, CGDir
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-	const char *apiVersion = tsapi_apiVersion();
-	BOOL apiAvailable = strcmp("", apiVersion) != 0;
-	tsapi_freeString(apiVersion);
-	if (! apiAvailable) {
+	if (! [TSAPI available]) {
 		NSAlert *alert = [NSAlert new];
 		[alert addButtonWithTitle:@"OK"];
 		alert.messageText = @"Could not access TotalSpaces2";

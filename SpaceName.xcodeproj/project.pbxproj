@@ -19,6 +19,7 @@
 		C6D2850F1C58FAE600813456 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6D2850E1C58FAE600813456 /* Sparkle.framework */; };
 		C6D285101C58FAE600813456 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6D2850E1C58FAE600813456 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C6D285171C58FBD000813456 /* Sparkle.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6D285111C58FB5900813456 /* Sparkle.framework.dSYM */; };
+		C6D2851A1C598E6200813456 /* TSAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = C6D285191C598E6200813456 /* TSAPI.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,8 @@
 		C6CC01541C407BC300899A72 /* NSWindow+canBecomeKeyWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSWindow+canBecomeKeyWindow.m"; sourceTree = "<group>"; };
 		C6D2850E1C58FAE600813456 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Carthage/Build/Mac/Sparkle.framework; sourceTree = "<group>"; };
 		C6D285111C58FB5900813456 /* Sparkle.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Sparkle.framework.dSYM; path = Carthage/Build/Mac/Sparkle.framework.dSYM; sourceTree = "<group>"; };
+		C6D285181C598E6200813456 /* TSAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSAPI.h; sourceTree = "<group>"; };
+		C6D285191C598E6200813456 /* TSAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSAPI.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +122,7 @@
 		C6CC01251C4052FE00899A72 /* SpaceName */ = {
 			isa = PBXGroup;
 			children = (
+				C6D2851B1C598EB000813456 /* TSAPI */,
 				C6CC01261C4052FE00899A72 /* AppDelegate.h */,
 				C6CC01271C4052FE00899A72 /* AppDelegate.m */,
 				C67894101C54074B00B30C72 /* SpaceNameTextFieldDelegate.h */,
@@ -166,6 +170,15 @@
 				C6D2850E1C58FAE600813456 /* Sparkle.framework */,
 			);
 			name = Dependencies;
+			sourceTree = "<group>";
+		};
+		C6D2851B1C598EB000813456 /* TSAPI */ = {
+			isa = PBXGroup;
+			children = (
+				C6D285181C598E6200813456 /* TSAPI.h */,
+				C6D285191C598E6200813456 /* TSAPI.m */,
+			);
+			name = TSAPI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,6 +282,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6D2851A1C598E6200813456 /* TSAPI.m in Sources */,
 				C67894121C54074B00B30C72 /* SpaceNameTextFieldDelegate.m in Sources */,
 				C6CC01551C407BC300899A72 /* NSWindow+canBecomeKeyWindow.m in Sources */,
 				C6CC012B1C4052FE00899A72 /* main.m in Sources */,
