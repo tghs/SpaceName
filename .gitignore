@@ -1,3 +1,6 @@
+# Xcode settings
+cuserdata/
+
 # Build output
 build/
 
