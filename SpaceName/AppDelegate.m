@@ -105,8 +105,10 @@ void spaceChange(unsigned int fromSpaceNumber, unsigned int toSpaceNumber, CGDir
 	for (int i = 1; i <= spaceCount; i++) {
 		const char *cSpaceName = tsapi_spaceNameForSpaceNumberOnDisplay(i, display_id);
 		NSString *spaceName = [NSString stringWithCString:cSpaceName encoding:NSUTF8StringEncoding];
+		NSString *prefixedSpaceName = [NSString stringWithFormat:@"%i: %@", i, spaceName];
+		
 		NSMenuItem *item = [NSMenuItem new];
-		item.title = spaceName;
+		item.title = prefixedSpaceName;
 		item.action = @selector(menuSpaceChange:);
 		item.keyEquivalent = @"";
 		NSNumber *spaceNumber = [NSNumber numberWithInt:i];
