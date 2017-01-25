@@ -5,5 +5,4 @@ xcuserdata/
 build/
 
 # Carthage
-Cartfile.resolved
 Carthage/
